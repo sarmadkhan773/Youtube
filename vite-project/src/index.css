@@ -1,0 +1,8 @@
+/* index.css ya global css file mein add karein */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
