@@ -1,9 +1,25 @@
-import React from 'react'
+import { useState } from "react";
+import Sidebar from "../components/Sidebar";
+import VideoGrid from "../components/VideoGrid";
+import Selector from "../components/Selector";
 
-const Home = () => {
+export default function Home() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
-    <div>Home</div>
-  )
-}
+    <div className="flex">
+      {/* Sidebar */}
+      <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
-export default Home
+      {/* Homepage Content */}
+      <main
+        className={`flex-1 transition-transform duration-300 ${
+          isSidebarOpen ? "translate-x-64" : "translate-x-0"
+        }`}
+      >
+        <Selector />
+        <VideoGrid />
+      </main>
+    </div>
+  );
+}
